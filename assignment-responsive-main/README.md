@@ -1,7 +1,7 @@
 # Responsive design assignment project
-# Indra Ulziibadrakh
+# Indra Ulziibadrakh 
 
-## Team Green
+## Team Green nogoon
 
 Responsive design "Upgrade me" assignment
 
