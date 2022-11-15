@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .box {
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+
+    /* transition-delay: 0.5s;
+    transition-duration: 0.5s;
+    transition-property: all; 
+    transition: 0.5s border-radius, 3s background-color;
+}
+
+.box:hover {
+    border-radius: 50%;
+    background-color: green;
+} */
+
+.box {
+    position: relative;
+    padding: 0 10px ;
+    width: 40px;
+    border-radius: 15px;
+    height: 30px;
+    border: 1px solid black;
+    outline: 0;
+    transition: 0.5s all;
+    text-align: center; 
+    background-color: grey;
+}
+
+
+.circle {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    height: 28px;
+    width:28px;
+    left: 0px; 
+}
+
+.circle:active {
+    transition: 0.5s all;
+    left: 30px;
+}
+
+.box:active {
+    background-color: darkblue;
+}
+
+
+/* .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ccc;
+    color: #fff;
+
+} */
