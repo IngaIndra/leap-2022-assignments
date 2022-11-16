@@ -1,0 +1,185 @@
+
+*{
+box-sizing: border-box;
+}
+
+html {
+    font: normal 14px/22px Helvetica Neue,sans-serif,Arial;
+}
+
+body {
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    margin: 0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+.col-2-3 {
+    width: 690px;
+}
+
+.col-1-3 {
+    width: 290px;
+}
+
+section h2 {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 50px;
+}
+
+.article-img {
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 58.6%;
+}
+
+.article-img img {
+    display: block;
+    position: absolute;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.article-title {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.article-infos {
+    color: #888;
+    font-size: 12px;
+}
+
+.article-infos i{
+    color: #c6c6c6;
+}
+
+.article-infos span:not(:last-child) {
+    margin-right: 10px;
+}
+
+.sidebar-articles >* {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.article--long {
+    display: flex;
+}
+
+.article--long .article-img{
+    margin-right: 30px;
+}
+
+.article--long .article-img img {
+    width: 210px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.article--long .article-title {
+    font-size: 19px;
+}
+
+.article-description {
+    font-size: 14px;
+    line-height: 23px;
+    height: 46px;
+    overflow: hidden; 
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.main-articles >* {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.articles>* {
+    width: calc((100% - 96px)/3)
+}
+
+.article-img img{
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+    
+@media screen and (max-width:1220px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+@media screen and (max-width:1020px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .articles>* {
+        width: calc((100% - 60px)/3);
+    }
+}
+
+@media screen and (max-width:768px) {
+    
+    .container {
+        padding: 0 10px;
+    }
+    .articles>* {
+        width: calc((100% - 30px)/2);
+    }
+}
+
+@media screen and (max-width:576px) {
+    
+    .container {
+        padding: 0 10px;
+    }
+    .articles>* {
+        width: 100%;
+    }
+}
+
+
+
