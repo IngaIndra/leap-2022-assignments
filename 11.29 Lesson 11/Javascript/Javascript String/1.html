@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const str1 = "Hello ";
+      const str2 = "I'm";
+      const str3 = `Indra`;
+
+      const message = str1 + "everyone, \n" + str2 + "\t Inga " + str3;
+      console.log(message);
+      const message1 = `${str1} everyone ${str2} ${str3}`;
+      const text = "Leap student".toUpperCase();
+      console.log(text);
+      console.log(message1);
+      console.log(str1.length);
+      console.log(str3.toUpperCase());
+
+      const firstName = "John";
+
+      const fullString = "JavaScript is a programming language";
+      const substring = fullString.substring(13, 27);
+      const javas = fullString.substr(0, 10);
+      console.log(substring);
+      console.log(javas);
+
+      const iof = "This is String";
+      // 'Th string';
+      const iof1 = iof.substr(0, iof.indexOf("is"));
+      let rest = iof.substring(iof.indexOf("is") + 3);
+      const iof2 = rest.substring(iof.indexOf("is"));
+      const result = iof1.concat("", iof2);
+      console.log(result);
+
+      //let results = window.prompt(message);
+
+      //let name1 = window.prompt("Tanii ner?", "Bold");
+      //console.log("Sainu,", name1);
+
+      let a = 5,
+        b = 9;
+      const diff = Math.abs(a - b);
+      console.log(diff);
+
+      //2 toonii dund random too avah
+      let rand = Math.round(Math.random() * (10 - 5)) + 5;
+      console.log(rand);
+
+      //registriin dugaar
+      const reg = window.prompt ("Enter your Register Number");
+      const register = "СЦ90091819",
+
+      let letters= register.substring (0,2),
+
+        let numbers = register.substring(2, 10);
+      If (register.length === 10 && !Number(letters) && Number(numbers)) {
+      console.log("Зөв оруулсан байна");
+      } else {
+        console.log("Буруу оруулсан байна");
+      }
+    </script>
+  </body>
+</html>
