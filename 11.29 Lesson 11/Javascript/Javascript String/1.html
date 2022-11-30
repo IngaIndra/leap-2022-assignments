@@ -52,17 +52,13 @@
       console.log(rand);
 
       //registriin dugaar
-      const reg = window.prompt ("Enter your Register Number");
-      const register = "СЦ90091819",
-
-      let letters= register.substring (0,2),
-
-        let numbers = register.substring(2, 10);
-      If (register.length === 10 && !Number(letters) && Number(numbers)) {
-      console.log("Зөв оруулсан байна");
-      } else {
-        console.log("Буруу оруулсан байна");
-      }
+      const register = window.prompt("Enter your Register Number");
+      let letters = register.substring(0, 2);
+      let numbers = register.substring(2, 10);
+      register.length === 10 && !Number(letters);
+      if (register.length === 10 && !Number(letters))
+        console.log("Зөв оруулсан байна");
+      else console.log("Буруу оруулсан байна");
     </script>
   </body>
 </html>
