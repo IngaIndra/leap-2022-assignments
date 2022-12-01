@@ -56,19 +56,29 @@
       //   console.log(sum);
 
       //davtalt dotor davtalt
-      const n = 10;
-      let i = 0;
-      let row = "";
-      while (i < n) {
-        let j = 1;
-        while (j > 1) {
-          row += j + "";
-          j++;
-        }
-        row += "\n";
+      //   const n = 10;
+      //   let i = 0;
+      //   let row = "";
+      //   while (i < n) {
+      //     let j = n - 1;
+      //     while (j >= i) {
+      //       row += "*" + " "; //odnii orond 'j' bichih
+      //       j--;
+      //     }
+      //     row += "\n";
+      //     i++;
+      //   }
+      //   console.log(row);
+
+      //Anhnii toog oloh
+      let n = 79;
+      let i = 2;
+      let isPrime = true;
+      while (i <= n / 2) {
+        if (isPrime) isPrime = n % i !== 0;
         i++;
       }
-      console.log(row);
+      console.log(isPrime);
     </script>
   </body>
 </html>
