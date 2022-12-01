@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Odtoi durvuljin
+      //   let n = 10;
+      //   let index = 1;
+      //   let result = "";
+      //   while (index <= n) {
+      //     let j = 1;
+      //     if (index == 1 || index == n) {
+      //       while (j <= n) {
+      //         result += "* ";
+      //         j++;
+      //       }
+      //     } else {
+      //       result += "* ";
+      //       while (j < n - 1) {
+      //         result += "  ";
+      //         j++;
+      //       }
+      //       result += "*";
+      //     }
+      //     result += "\n";
+      //     index++;
+      //   }
+      //   console.log(result);
+
+      //3!
+
+      //   const m = 3;
+      //   let sun = 1;
+      //   let i = 1;
+      //   while (i <= m) {
+      //     sun = sun * i;
+      //     i++;
+      //     console.log(sun);
+      //   }
+
+      //Toonii niilberuud
+      //   const l = 10;
+      //   let sum = 0;
+      //   let ind = 1;
+      //   while (ind <= l) {
+      //     sum += ind;
+      //     console.log(`ind=${ind}, sum=${sum}`);
+      //     //ind += 2; //tegsh too
+      //     ind += 2; //sondgoi too
+      //   }
+      //   console.log(sum);
+
+      //davtalt dotor davtalt
+      const n = 10;
+      let i = 0;
+      let row = "";
+      while (i < n) {
+        let j = 1;
+        while (j > 1) {
+          row += j + "";
+          j++;
+        }
+        row += "\n";
+        i++;
+      }
+      console.log(row);
+    </script>
+  </body>
+</html>
