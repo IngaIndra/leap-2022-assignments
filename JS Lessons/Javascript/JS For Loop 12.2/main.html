@@ -17,7 +17,7 @@
       //   let text = num.toString().split("").reverse().join("");
       //   console.log(text);
 
-      const too = 112345;
+      const too = 123456;
       const strToo = too + "";
       let result = "";
 
@@ -28,6 +28,25 @@
         result = strToo.charAt(i) + result;
       }
       console.log(result);
+
+      //Number digits
+      let n = 12345678;
+      let len = 0;
+      while (n > 0) {
+        len += 1;
+        n = Math.floor(n / 10);
+      }
+      console.log(len);
+
+      //Тооны нийлбэр
+      let m = Number(window.prompt("Enter number here"));
+      let total = 0;
+      let i = 1;
+      while (i <= m) {
+        total += i;
+        i++;
+      }
+      console.log(total);
     </script>
   </body>
 </html>
