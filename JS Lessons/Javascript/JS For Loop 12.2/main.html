@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Guess the number
+      //   let randomNumber = Math.round(Math.random() * 100) + 1;
+      //   console.log(randomNumber);
+
+      //Urvuu too
+      //   let num = 56789;
+      //   let text = num.toString().split("").reverse().join("");
+      //   console.log(text);
+
+      const too = 112345;
+      const strToo = too + "";
+      let result = "";
+
+      //    too ni 6 orontoi tiimees 0->5 hurtleh index uud l orshij baina
+      // strToo.length = 6;
+      // 0->5
+      for (let i = 0; i < strToo.length; i++) {
+        result = strToo.charAt(i) + result;
+      }
+      console.log(result);
+    </script>
+  </body>
+</html>
