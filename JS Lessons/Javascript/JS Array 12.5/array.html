@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   const names = [
+      //     "ermuun",
+      //     "temuulen",
+      //     "usukhbayr",
+      //     "sukhbat",
+      //     "temuulen",
+      //     "ganbold",
+      //     "amur",
+      //     "dulguun",
+      //     "namuunbaigali",
+      //     "baljinnyam",
+      //     "anand",
+      //     "odbayr",
+      //     "narantsetseg",
+      //     "aimergen",
+      //     "tengisbold",
+      //     "dalaikhuu",
+      //     "indra",
+      //     "javkhlant",
+      //     "binderya",
+      //     "sederdene",
+      //   ];
+      //   let longIndex = 0;
+
+      //   for (let i = 1; i < names.length; i++) {
+      //     if (names[longIndex].length < names[i].length) {
+      //       longIndex = i;
+      //     }
+      //   }
+      //   console.log(`${names[longIndex]} нь хамгийн урт нэртэй хүн байна.`);
+
+      //   const results = [60, 70, 85, 90, 63, 89, 99];
+      //   let resultSum = 0;
+      //   for (let i = 0; i < results.length; i++) {
+      //     resultSum += results[i];
+      //   }
+      //   const avg = resultSum / results.length;
+      //   console.log(Math.round(avg));
+
+      //   const results = [60, 70, 85, 90, 63, 89, 99, 56];
+      //   const letters = [a,b,c,d,f]
+      //   results[results.length] =
+
+      //Array of Numbers daalgavar
+      let arrayOfNumbers = [43, 56, 23, 89, 88, 90, 99, 652, 15, 290, 11];
+      let sum = 0;
+      for (let i = 0; i < arrayOfNumbers.length; i++) {
+        sum += arrayOfNumbers[i];
+      }
+      let largest = arrayOfNumbers[0];
+      for (let i = 0; i < arrayOfNumbers.length; i++) {
+        if (largest < arrayOfNumbers[i]) {
+          largest = arrayOfNumbers[i];
+        }
+      }
+      let smallest = arrayOfNumbers[0];
+      for (let i = 0; i < arrayOfNumbers.length; i++) {
+        if (smallest > arrayOfNumbers[i]) {
+          smallest = arrayOfNumbers[i];
+        }
+      }
+      arrayOfNumbers[arrayOfNumbers.length] = 999;
+
+      console.log(sum);
+      console.log(largest);
+      console.log(smallest);
+      console.log(arrayOfNumbers);
+    </script>
+  </body>
+</html>
