@@ -9,11 +9,11 @@
   <body>
     <script>
       //palindromic checker
-      const input = window.prompt();
-      function isPalindrome(data) {
-        return data === data.split("").reverse().join("");
-      }
-      console.log(isPalindrome(input));
+      // const input = window.prompt("Too oruulna uu");
+      // function isPalindrome(data) {
+      //   return data === data.split("").reverse().join("");
+      // }
+      // console.log(isPalindrome(input));
 
       //Оочир
       const queueLine = [
@@ -40,7 +40,80 @@
       const cutTen = queueLine.slice(0, 10);
       console.log(cutTen);
 
-      //reverse a number
+      // //reverse a number
+      // const number = window.prompt("enter number :)");
+      // // const number = 12345;
+      // function reverseInteger(num) {
+      //   return Number(num.toString().split("").reverse().join(""));
+      // }
+      // console.log(reverseInteger(number));
+
+      //SHOPPING CART
+      const shoppingCart = ["Milk", "Coffee", "Tea", "Honey"];
+      //add meat in the beginning
+      shoppingCart.unshift("Meat");
+      //add sugar in the end
+      shoppingCart.push("Sugar");
+      //remove honey
+      shoppingCart.splice(4, 1);
+      //modify Tea to 'Green Tea'
+      shoppingCart.splice(3, 1, "Green Tea");
+      console.log(shoppingCart);
+
+      //ARRAY REMOVE
+      // const arr = [2, 4, 6, 7, 9, 6];
+      // console.log(arr);
+      // const n = 6;
+      // function removeArrayElement(list, digitToRemove) {
+      //   while (list.includes(digitToRemove)) {
+      //     const indexToRemove = list.indexOf(digitToRemove);
+      //     list.splice(indexToRemove, 1);
+      //   }
+      // }
+      // removeArrayElement(arr, n);
+      // console.log(arr);
+
+      //CAR
+      const carBrands = [
+        ["Aston Martin Lagonda Ltd", "UK", 2016],
+        ["Audi", "Germany", 2016],
+        ["BMW", "Germany", 2016],
+        ["Chevrolet", "USA", 2016],
+        ["Dodge", "USA", 2016],
+        ["Ferrari", "Italy", 2016],
+        ["Honda", "Japan", 2016],
+        ["Jaguar", "UK", 2016],
+        ["Lamborghini", "Italy", 2016],
+      ];
+
+      //1.EHNII USGEER HAIH
+      function searchByFirstDigit(brands, letter) {
+        const result = [];
+        for (let i = 0; i < brands.length; i++) {
+          if (brands[i][0][0].toLowerCase() === letter.toLowerCase()) {
+            result.push(brands[i]);
+          }
+        }
+        return result;
+      }
+      const search = prompt("");
+      console.log(searchByFirstDigit(carBrands, search));
+
+      //2.ULSAAR HAIH
+      function searchByCountry(brands, country) {
+        const result = [];
+        for (let i = 0; i < brands.length; i++) {
+          if (brands[i][1].toLowerCase() === country.toLowerCase()) {
+            result.push(brands[i]);
+          }
+        }
+        return result;
+      }
+      const find = prompt("");
+      console.log(searchByCountry(carBrands, find));
+
+      //3.TOTAL HOW MANY ROWS OF DATA, HOW MANY COUNTRIES
+      //????????
     </script>
   </body>
 </html>
