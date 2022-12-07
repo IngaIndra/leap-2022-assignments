@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //palindromic checker
+      const input = window.prompt();
+      function isPalindrome(data) {
+        return data === data.split("").reverse().join("");
+      }
+      console.log(isPalindrome(input));
+
+      //Оочир
+      const queueLine = [
+        "Бат",
+        "Дорж",
+        "Пунцаг",
+        "Готов",
+        "Баяраа",
+        "Болд",
+        "Навчаа",
+        "Гончигсумлай",
+        "Цэцгээ",
+        "Нэргүй",
+        "Бальбийгомбо",
+        "Баатар",
+        "Сүхээ",
+      ];
+      function queue(egch1, egch2) {
+        queueLine.splice(8, 0, egch1, egch2);
+      }
+      queue("egch1", "egch2");
+      console.log(queueLine);
+
+      const cutTen = queueLine.slice(0, 10);
+      console.log(cutTen);
+
+      //reverse a number
+    </script>
+  </body>
+</html>
