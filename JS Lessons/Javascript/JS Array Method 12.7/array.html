@@ -86,29 +86,6 @@
         ["Lamborghini", "Italy", 2016],
       ];
 
-      //how many brands
-      const countries = [];
-      const counting = [];
-      for (let i = 0; i < carBrands.length; i++) {
-        carBrands[i][1];
-
-        if (!countries.includes(carBrands[i][1])) {
-          countries.push(carBrands[i][1]);
-          counting.push(0);
-        }
-      }
-
-      for (let i = 0; i < countries.length; i++) {
-        for (let j = 0; j < carBrands.length; j++) {
-          if (countries[i] === carBrands[j][1]) {
-            counting[i]++;
-          }
-        }
-      }
-      for (let i = 0; i < countries.length; i++) {
-        console.log(countries[i], counting[i]);
-      }
-
       //1.EHNII USGEER HAIH
       // function searchByFirstDigit(brands, letter) {
       //   const result = [];
@@ -135,9 +112,31 @@
       // const find = prompt("");
       // console.log(searchByCountry(carBrands, find));
 
-      // //3.TOTAL HOW MANY ROWS OF DATA
+      // 3.TOTAL HOW MANY ROWS OF DATA, HOW MANY BRANDS
       // let result = `Нийт ${carBrands.length} мөр дата байна`;
       // console.log(result);
+
+      const countries = [];
+      const counting = [];
+      for (let i = 0; i < carBrands.length; i++) {
+        carBrands[i][1];
+
+        if (!countries.includes(carBrands[i][1])) {
+          countries.push(carBrands[i][1]);
+          counting.push(0);
+        }
+      }
+
+      for (let i = 0; i < countries.length; i++) {
+        for (let j = 0; j < carBrands.length; j++) {
+          if (countries[i] === carBrands[j][1]) {
+            counting[i]++;
+          }
+        }
+      }
+      for (let i = 0; i < countries.length; i++) {
+        console.log(countries[i], counting[i]);
+      }
 
       //Parameterize a STRING
       const str = "This Is Where I Begin";
