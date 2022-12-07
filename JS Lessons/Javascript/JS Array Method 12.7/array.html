@@ -86,34 +86,66 @@
         ["Lamborghini", "Italy", 2016],
       ];
 
+      //how many brands
+      const countries = [];
+      const counting = [];
+      for (let i = 0; i < carBrands.length; i++) {
+        carBrands[i][1];
+
+        if (!countries.includes(carBrands[i][1])) {
+          countries.push(carBrands[i][1]);
+          counting.push(0);
+        }
+      }
+
+      for (let i = 0; i < countries.length; i++) {
+        for (let j = 0; j < carBrands.length; j++) {
+          if (countries[i] === carBrands[j][1]) {
+            counting[i]++;
+          }
+        }
+      }
+      for (let i = 0; i < countries.length; i++) {
+        console.log(countries[i], counting[i]);
+      }
+
       //1.EHNII USGEER HAIH
-      function searchByFirstDigit(brands, letter) {
-        const result = [];
-        for (let i = 0; i < brands.length; i++) {
-          if (brands[i][0][0].toLowerCase() === letter.toLowerCase()) {
-            result.push(brands[i]);
-          }
-        }
-        return result;
-      }
-      const search = prompt("");
-      console.log(searchByFirstDigit(carBrands, search));
+      // function searchByFirstDigit(brands, letter) {
+      //   const result = [];
+      //   for (let i = 0; i < brands.length; i++) {
+      //     if (brands[i][0][0].toLowerCase() === letter.toLowerCase()) {
+      //       result.push(brands[i]);
+      //     }
+      //   }
+      //   return result;
+      // }
+      // const search = prompt("");
+      // console.log(searchByFirstDigit(carBrands, search));
 
-      //2.ULSAAR HAIH
-      function searchByCountry(brands, country) {
-        const result = [];
-        for (let i = 0; i < brands.length; i++) {
-          if (brands[i][1].toLowerCase() === country.toLowerCase()) {
-            result.push(brands[i]);
-          }
-        }
-        return result;
-      }
-      const find = prompt("");
-      console.log(searchByCountry(carBrands, find));
+      // //2.ULSAAR HAIH
+      // function searchByCountry(brands, country) {
+      //   const result = [];
+      //   for (let i = 0; i < brands.length; i++) {
+      //     if (brands[i][1].toLowerCase() === country.toLowerCase()) {
+      //       result.push(brands[i]);
+      //     }
+      //   }
+      //   return result;
+      // }
+      // const find = prompt("");
+      // console.log(searchByCountry(carBrands, find));
 
-      //3.TOTAL HOW MANY ROWS OF DATA, HOW MANY COUNTRIES
-      //????????
+      // //3.TOTAL HOW MANY ROWS OF DATA
+      // let result = `Нийт ${carBrands.length} мөр дата байна`;
+      // console.log(result);
+
+      //Parameterize a STRING
+      const str = "This Is Where I Begin";
+      function parameterizeStr(str) {
+        const words = str.split(" ");
+        return words.join("-").toLowerCase();
+      }
+      console.log(parameterizeStr(str));
     </script>
   </body>
 </html>
