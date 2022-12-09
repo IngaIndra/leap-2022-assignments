@@ -80,6 +80,28 @@ console.log(
 //By grade
 // const totalA = CountByFieldValueRange(data, "grade", 90, 101);
 
+//Search by letter
+const result = [];
+const query = "An";
+for (let i = 0; i < data.length; i++) {
+  const row = data[i];
+  if (row.firstName.toLowerCase().includes(query.toLowerCase())) {
+    result.push(row);
+  }
+}
+console.log(result);
+
+//Search by first letter
+const results = [];
+const queries = "Z";
+for (let i = 0; i < data.length; i++) {
+  const row = data[i];
+  if (row.firstName[0].toLowerCase() === queries.toLowerCase()) {
+    results.push(row);
+  }
+}
+console.log(results);
+
 //HW-SIMPLE OBJECT
 let Dog = {
   breed: "Corgi",
