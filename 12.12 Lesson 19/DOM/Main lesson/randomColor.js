@@ -1,4 +1,4 @@
-//darahaar HTML-n ungu ter chigtee soligdoh
+//Random color generator
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
