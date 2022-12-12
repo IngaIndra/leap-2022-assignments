@@ -1,5 +1,3 @@
-const parent = document.querySelector("ul");
-
 let score = 0;
 const scoreTarget = document.querySelector("#scoreTarget");
 
@@ -7,6 +5,9 @@ function updateScore(point) {
   score += point;
   scoreTarget.innerHTML = score;
 }
+
+const parent = document.querySelector("ul");
+
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -17,7 +18,6 @@ function getRandomColor() {
   const blue = getRandomNumber(0, 255);
   return [red, green, blue];
 }
-const tileCount = 4;
 
 function getDifferentColor(colors) {
   const random = getRandomNumber(0, 2);
@@ -37,7 +37,7 @@ function reDraw() {
   const colors = getRandomColor();
 
   const randomIndex = getRandomNumber(0, 3);
-
+  const tileCount = 9; //if - this score, add more tiles etc.
   for (let i = 0; i < tileCount; i++) {
     const li = document.createElement("li");
     const isNormal = i !== randomIndex;
