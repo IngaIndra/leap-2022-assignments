@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //palindromic checker
+      // const input = window.prompt("Too oruulna uu");
+      // function isPalindrome(data) {
+      //   return data === data.split("").reverse().join("");
+      // }
+      // console.log(isPalindrome(input));
+
+      //Оочир
+      const queueLine = [
+        "Бат",
+        "Дорж",
+        "Пунцаг",
+        "Готов",
+        "Баяраа",
+        "Болд",
+        "Навчаа",
+        "Гончигсумлай",
+        "Цэцгээ",
+        "Нэргүй",
+        "Бальбийгомбо",
+        "Баатар",
+        "Сүхээ",
+      ];
+      function queue(egch1, egch2) {
+        queueLine.splice(8, 0, egch1, egch2);
+      }
+      queue("egch1", "egch2");
+      console.log(queueLine);
+
+      const cutTen = queueLine.slice(0, 10);
+      console.log(cutTen);
+
+      // //reverse a number
+      // const number = window.prompt("enter number :)");
+      // // const number = 12345;
+      // function reverseInteger(num) {
+      //   return Number(num.toString().split("").reverse().join(""));
+      // }
+      // console.log(reverseInteger(number));
+
+      //SHOPPING CART
+      const shoppingCart = ["Milk", "Coffee", "Tea", "Honey"];
+      //add meat in the beginning
+      shoppingCart.unshift("Meat");
+      //add sugar in the end
+      shoppingCart.push("Sugar");
+      //remove honey
+      shoppingCart.splice(4, 1);
+      //modify Tea to 'Green Tea'
+      shoppingCart.splice(3, 1, "Green Tea");
+      console.log(shoppingCart);
+
+      //ARRAY REMOVE
+      // const arr = [2, 4, 6, 7, 9, 6];
+      // console.log(arr);
+      // const n = 6;
+      // function removeArrayElement(list, digitToRemove) {
+      //   while (list.includes(digitToRemove)) {
+      //     const indexToRemove = list.indexOf(digitToRemove);
+      //     list.splice(indexToRemove, 1);
+      //   }
+      // }
+      // removeArrayElement(arr, n);
+      // console.log(arr);
+
+      //CAR
+      const carBrands = [
+        ["Aston Martin Lagonda Ltd", "UK", 2016],
+        ["Audi", "Germany", 2016],
+        ["BMW", "Germany", 2016],
+        ["Chevrolet", "USA", 2016],
+        ["Dodge", "USA", 2016],
+        ["Ferrari", "Italy", 2016],
+        ["Honda", "Japan", 2016],
+        ["Jaguar", "UK", 2016],
+        ["Lamborghini", "Italy", 2016],
+      ];
+
+      //1.EHNII USGEER HAIH
+      // function searchByFirstDigit(brands, letter) {
+      //   const result = [];
+      //   for (let i = 0; i < brands.length; i++) {
+      //     if (brands[i][0][0].toLowerCase() === letter.toLowerCase()) {
+      //       result.push(brands[i]);
+      //     }
+      //   }
+      //   return result;
+      // }
+      // const search = prompt("");
+      // console.log(searchByFirstDigit(carBrands, search));
+
+      // //2.ULSAAR HAIH
+      // function searchByCountry(brands, country) {
+      //   const result = [];
+      //   for (let i = 0; i < brands.length; i++) {
+      //     if (brands[i][1].toLowerCase() === country.toLowerCase()) {
+      //       result.push(brands[i]);
+      //     }
+      //   }
+      //   return result;
+      // }
+      // const find = prompt("");
+      // console.log(searchByCountry(carBrands, find));
+
+      // 3.TOTAL HOW MANY ROWS OF DATA, HOW MANY BRANDS FROM COUNTRIES
+      let result = `Нийт ${carBrands.length} мөр дата байна`;
+      console.log(result);
+
+      const countries = [];
+      const counting = [];
+      for (let i = 0; i < carBrands.length; i++) {
+        carBrands[i][1];
+
+        if (!countries.includes(carBrands[i][1])) {
+          countries.push(carBrands[i][1]);
+          counting.push(0);
+        }
+      }
+
+      for (let i = 0; i < countries.length; i++) {
+        for (let j = 0; j < carBrands.length; j++) {
+          if (countries[i] === carBrands[j][1]) {
+            counting[i]++;
+          }
+        }
+      }
+      for (let i = 0; i < countries.length; i++) {
+        console.log(countries[i], counting[i]);
+      }
+
+      //Parameterize a STRING
+      const str = "This Is Where I Begin";
+      function parameterizeStr(str) {
+        const words = str.split(" ");
+        return words.join("-").toLowerCase();
+      }
+      console.log(parameterizeStr(str));
+    </script>
+  </body>
+</html>

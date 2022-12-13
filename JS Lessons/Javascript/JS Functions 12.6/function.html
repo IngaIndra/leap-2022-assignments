@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //pyramid
+      function pyramid(rowLength) {
+        let result = "";
+        for (let i = 0; i <= rowLength; i++) {
+          for (let j = 0; j < rowLength - i; j++) {
+            result += "-";
+          }
+          for (let j = 0; j < i; j++) {
+            result += "* ";
+          }
+          result += "\n";
+        }
+        console.log(result);
+        return result;
+      }
+      pyramid(5);
+      pyramid(9);
+
+      //Sainuu
+      function greet(name) {
+        console.log("Hello " + name + " :)");
+      }
+      let input = prompt("Enter your name: ");
+
+      greet(input);
+
+      //Array sorter function
+      arr = [4, 32, 2, 5, 8, -10, 20, 1, 0, -20];
+    </script>
+  </body>
+</html>

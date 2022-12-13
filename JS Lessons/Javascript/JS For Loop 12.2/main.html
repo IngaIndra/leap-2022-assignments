@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Guess the number
+      //   let randomNumber = Math.round(Math.random() * 100) + 1;
+      //   console.log(randomNumber);
+
+      //Urvuu too
+      //   let num = 56789;
+      //   let text = num.toString().split("").reverse().join("");
+      //   console.log(text);
+
+      const too = 123456;
+      const strToo = too + "";
+      let result = "";
+
+      //    too ni 6 orontoi tiimees 0->5 hurtleh index uud l orshij baina
+      // strToo.length = 6;
+      // 0->5
+      for (let i = 0; i < strToo.length; i++) {
+        result = strToo.charAt(i) + result;
+      }
+      console.log(result);
+
+      //Number digits
+      let n = 12345678;
+      let len = 0;
+      while (n > 0) {
+        len += 1;
+        n = Math.floor(n / 10);
+      }
+      console.log(len);
+
+      //Тооны нийлбэр
+      let m = Number(window.prompt("Enter number here"));
+      let total = 0;
+      let i = 1;
+      while (i <= m) {
+        total += i;
+        i++;
+      }
+      console.log(total);
+    </script>
+  </body>
+</html>
