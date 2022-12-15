@@ -7,6 +7,9 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- Pascal's triangle -->
+    <script src="./Pascal-triangle.js"></script>
+
     <script>
       //   const names = [
       //     "ermuun",
@@ -53,32 +56,36 @@
 
       //Array of Numbers daalgavar
       let arrayOfNumbers = [43, 56, 23, 89, 88, 90, 99, 652, 15, 290, 11];
+      //Toonuudiin niilber
       let sum = 0;
       for (let i = 0; i < arrayOfNumbers.length; i++) {
         sum += arrayOfNumbers[i];
       }
+      //Hamgiin ih toog ol
       let largest = arrayOfNumbers[0];
       for (let i = 0; i < arrayOfNumbers.length; i++) {
         if (largest < arrayOfNumbers[i]) {
           largest = arrayOfNumbers[i];
         }
       }
+      //Hamgiin baga toog ol
       let smallest = arrayOfNumbers[0];
       for (let i = 0; i < arrayOfNumbers.length; i++) {
         if (smallest > arrayOfNumbers[i]) {
           smallest = arrayOfNumbers[i];
         }
       }
-      //   let n = Number(window.prompt("Enter number at the back"));
-      //   arrayOfNumbers[arrayOfNumbers.length] = n;
-      //   console.log(arrayOfNumbers);
+      //Suuld ba Ehend too nemeh
+      let n = Number(window.prompt("Enter number at the back"));
+      arrayOfNumbers[arrayOfNumbers.length] = n;
+      console.log(arrayOfNumbers);
 
-      //   let m = Number(window.prompt("Enter number at the front"));
-      //   for (let j = arrayOfNumbers.length - 1; j >= 0; j--) {
-      //     arrayOfNumbers[j + 1] = arrayOfNumbers[j];
-      //   }
-      //   arrayOfNumbers[0] = m;
-      //   console.log(arrayOfNumbers);
+      let m = Number(window.prompt("Enter number at the front"));
+      for (let j = arrayOfNumbers.length - 1; j >= 0; j--) {
+        arrayOfNumbers[j + 1] = arrayOfNumbers[j];
+      }
+      arrayOfNumbers[0] = m;
+      console.log(arrayOfNumbers);
 
       console.log(sum);
       console.log(largest);
