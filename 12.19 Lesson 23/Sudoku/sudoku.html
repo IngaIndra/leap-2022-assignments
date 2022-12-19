@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        height: 20px;
+        width: 20px;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        color: #666;
+      }
+      td:nth-child(3n) {
+        border-right: 2px solid #000;
+      }
+      tr:nth-child(3n) td {
+        border-bottom: 2px solid #000;
+      }
+      td.default {
+        color: #000;
+      }
+      ul {
+        list-style-type: none;
+        margin: 20px 0;
+        padding: 0;
+        display: flex;
+        gap: 10px;
+      }
+      li {
+        border: 1px solid #ddd;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        cursor: pointer;
+      }
+      td:not(.default) {
+        cursor: pointer;
+      }
+      td.active {
+        background: rgba(83, 104, 149, 0.5);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      }
+      td.error {
+        background: rgba(255, 104, 149, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <table id="tableTarget"></table>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+    </ul>
+    <script src="./sudoku.js"></script>
+  </body>
+</html>
