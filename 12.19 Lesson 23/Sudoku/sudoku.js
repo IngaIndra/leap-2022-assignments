@@ -71,10 +71,10 @@ document.addEventListener("keypress", function (e) {
 function isDuplicatedByRow(x, y, input) {
   let duplicated = false;
   for (let i = 0; i < 9; i++) {
-    if (i !== input && !duplicated && sudoku[x][i] !== 0) {
+    // console.log(i);
+    if (i !== y && !duplicated && sudoku[x][i] !== 0) {
+      console.log(i);
       duplicated = input === sudoku[x][i];
-      console.log(sudoku[x][i]);
-      // console.log(sudoku[y - 1]);
     }
   }
   return duplicated;
