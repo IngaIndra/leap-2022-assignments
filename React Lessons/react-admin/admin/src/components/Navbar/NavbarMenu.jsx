@@ -1,12 +1,19 @@
+function NavbarMenuItem({ item }) {
+  return (
+    <li className="nav-item">
+      <a className="nav-link" href={item.link}>
+        {item.label}
+      </a>
+    </li>
+  );
+}
+
 export default function NavbarMenu({ items = [], title = "" }) {
   return (
     <>
       <button
         className="navbar-toggler"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
@@ -17,15 +24,9 @@ export default function NavbarMenu({ items = [], title = "" }) {
           {title}
         </a>
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          {items.map((item) => {
-            return (
-              <li className="nav-item">
-                <a className="nav-link" href={item.link}>
-                  {item.label}
-                </a>
-              </li>
-            );
-          })}
+          {items.map((item, index) => (
+            <NavbarMenuItem item={item} key={`menu-item-${index}`} />
+          ))}
         </ul>
       </div>
     </>
