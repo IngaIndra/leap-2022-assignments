@@ -59,16 +59,9 @@ function TableBody() {
 export default function ContentTable({}) {
   return (
     <table className="table table-bordered table-hover">
-      <thead>
-        <tr>
-          <th width="1">#</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th width="1">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+      <TableHeader />
+      <TableBody>
+        <TableRow>
           <th scope="row">1</th>
           <td>Huurhun</td>
           <td>...</td>
@@ -81,8 +74,8 @@ export default function ContentTable({}) {
               <SlGhost />
             </button>
           </td>
-        </tr>
-      </tbody>
+        </TableRow>
+      </TableBody>
     </table>
   );
 }
