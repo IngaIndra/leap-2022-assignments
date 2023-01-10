@@ -6,7 +6,7 @@ function App() {
     [4, null, null, 2],
     [null, null, null, null],
     [null, null, null, null],
-    [null, null, null, null],
+    [4, 2, null, null],
   ]);
 
   const PuzzleRow = ({ row }) => {
