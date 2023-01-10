@@ -5,11 +5,18 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background: radial-gradient(#333, #111);
 }
 
 .board {
-  border: 5px solid rgb(35, 90, 162);
+  border: 5px solid rgb(226, 231, 237);
   position: relative;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  font-size: 50px;
+  color: #fff;
 }
 
 

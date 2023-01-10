@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
+
 const xCells = 10;
 const yCells = 10;
 
@@ -36,6 +37,7 @@ function Food({ x, y }) {
     width: tileWidth,
     height: tileHeight,
     backgroundColor: foodColor,
+    borderRadius: "50px",
   };
   return <div style={style}></div>;
 }
@@ -43,7 +45,7 @@ function Food({ x, y }) {
 function App() {
   const directions = ["Up", "Left", "Down", "Right"];
   const [counter, setCounter] = useState(0);
-  const [food, setFood] = useState({ x: 5, y: 5 });
+  const [food, setFood] = useState({ x:5, y: 5});
   const [direction, setDirection] = useState("Down");
   const [snake, setSnake] = useState([
     { x: 0, y: 2 },
