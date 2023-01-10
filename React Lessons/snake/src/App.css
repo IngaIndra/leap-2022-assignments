@@ -8,6 +8,8 @@
 }
 
 .board {
-  border: 2px solid #000;
+  border: 5px solid rgb(35, 90, 162);
   position: relative;
 }
+
+
