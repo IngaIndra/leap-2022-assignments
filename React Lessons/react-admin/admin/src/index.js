@@ -11,3 +11,8 @@ root.render(
     {/* <App/> */}
   </React.StrictMode>
 );
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1b33cb560f311c056dbe243b4ceb4d91c59ebff0

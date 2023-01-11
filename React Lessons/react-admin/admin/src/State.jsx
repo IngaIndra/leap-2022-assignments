@@ -123,7 +123,7 @@ export default function State() {
   return (
     <div style={styles.wrapper}>
       <header style={styles.header}>
-        <h1 style={styles.h1}>todos</h1>
+        <h1 style={styles.h1}>todo list</h1>
       </header>
       <form
         style={styles.form}
