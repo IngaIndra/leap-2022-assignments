@@ -13,6 +13,7 @@ function DropdownItem({ item }) {
     <li>
       <a className="dropdown-item" href={item.link}>
         {item.label}
+        {item.img}
       </a>
     </li>
   );

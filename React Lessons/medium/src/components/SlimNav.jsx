@@ -1,10 +1,11 @@
 import smallLogo from "../images/logo-small.svg";
 import MainButton from "./MainButton";
-import SearchIcon from "./SearchIcon.jsx";
-import WriteIcon from "./WriteIcon";
+import SearchIcon from "./img/SearchIcon.jsx";
+import WriteIcon from "./img/WriteIcon";
 import { useState } from "react";
 import NavbarDropdown from "./NavbarDropdown";
 import noImg from "../images/no-img.svg";
+import StarLogo from "./img/StarLogo.jsx";
 export default function SlimNav() {
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -12,7 +13,7 @@ export default function SlimNav() {
     setShowDropdown(!showDropdown);
   };
   const dropdownItems = [
-    { label: "Become a member", link: "#" },
+    { label: "Become a member", link: "#", img: <StarLogo /> },
     { label: "Apply to the Partner Program", link: "#" },
     { label: "Gift a membership", link: "#" },
   ];
