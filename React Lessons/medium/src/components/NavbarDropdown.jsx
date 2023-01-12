@@ -58,7 +58,7 @@ export default function NavbarDropdown({ img, items }) {
               </li>
             </div>
             <hr />
-            <div className="dropdown">
+            <div className="dropdownBottom">
               {items.map((item, index) => {
                 return (
                   <DropdownItem item={item} key={`dropdown-item-${index}`} />
