@@ -8,7 +8,7 @@ function NavbarMenuItem({ item }) {
   );
 }
 
-export default function NavbarMenu({ items = [], title = "" }) {
+export default function NavbarMenu({ items = [], title = "", onToggle }) {
   return (
     <>
       <button
@@ -16,6 +16,7 @@ export default function NavbarMenu({ items = [], title = "" }) {
         type="button"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        onClick={onToggle}
       >
         <span className="navbar-toggler-icon"></span>
       </button>

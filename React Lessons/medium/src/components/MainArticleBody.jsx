@@ -19,6 +19,7 @@ export default function MainArticleBody() {
               <img
                 className="astronaut-img"
                 src="https://miro.medium.com/max/4800/1*yRE1TACIEdzWswVNaDgvLg.webp"
+                alt=""
               ></img>
               <p></p>
             </div>
