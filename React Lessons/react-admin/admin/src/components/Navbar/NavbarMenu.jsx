@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 function NavbarMenuItem({ item }) {
   return (
     <li className="nav-item">
-      <a className="nav-link" href={item.link}>
+      <Link className="nav-link" to={item.link}>
         {item.label}
-      </a>
+      </Link>
     </li>
   );
 }
