@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors());
 
-const port = 8000;
+const port = 7000;
 
 let categories = JSON.parse(fs.readFileSync("categoryData.json", "utf-8"));
 let nextCatId = categories.length;
