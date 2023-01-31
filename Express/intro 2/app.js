@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors());
 
-const port = 7000;
+const port = 8000;
 
 let categories = JSON.parse(fs.readFileSync("categoryData.json", "utf-8"));
 let nextCatId = categories.length;
@@ -66,26 +66,6 @@ app.put("/categories/:id", jsonParser, (req, res) => {
   });
   updateCategoriesFile();
   res.json(updatedCat);
-});
-
-app.get("generateNumbers", (req, res) => {
-  let result = "";
-  for (let i = 0; i < 10000; i++) {
-    let n = "";
-    if (i < 1000) {
-      n += "0";
-    }
-    if (i < 100) {
-      n += "0";
-    }
-    if (i < 10) {
-      n += "0";
-    }
-    n += i;
-    result += "9911${n}\n";
-  }
-  fs.writeFileSync("phones.txt", result);
-  res.json("Done");
 });
 
 let products = JSON.parse(fs.readFileSync("MOCK_DATA.json", "utf-8"));

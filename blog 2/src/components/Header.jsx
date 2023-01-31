@@ -1,12 +1,13 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { IoSearchOutline } from 'react-icons/io5';
+import { useEffect } from "react";
+import { useState } from "react";
+import { IoSearchOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('https://demo-api-one.vercel.app/api/categories')
+    fetch("https://demo-api-one.vercel.app/api/categories")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data.body);
@@ -36,7 +37,10 @@ export default function Header() {
           <nav>
             <ul>
               <li>
-                <a href="/">Нүүр</a>
+                <Link to={"/"}>Нүүр</Link>
+              </li>
+              <li>
+                <Link to={"/products"}>Бараа</Link>
               </li>
               {categories.map((item) => (
                 <li key={item.id}>
