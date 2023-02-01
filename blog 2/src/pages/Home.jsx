@@ -9,13 +9,13 @@ export default function Home() {
     },
     {
       image:
-        "https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/544c5374609d46cc8d4baf33010cd714_9366/always-original-trench-coat.jpg",
-      title: "Adidas Trench Coat",
+        "https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/169fa60ea6084bf4b5b7af4000e79e82_9366/ultraboost-1.0.jpg",
+      title: "Adidas Ultraboost",
     },
     {
       image:
-        "https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/544c5374609d46cc8d4baf33010cd714_9366/always-original-trench-coat.jpg",
-      title: "Adidas Trench Coat",
+        "https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/42eb5b497c0545fda889af5e014faf9b_faec/adidas-basketball-hoodie.jpg",
+      title: "Adidas Basketball Hoodie",
     },
   ];
   return (
