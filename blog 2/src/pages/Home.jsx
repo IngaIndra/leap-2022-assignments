@@ -10,12 +10,17 @@ export default function Home() {
     {
       image:
         "https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/169fa60ea6084bf4b5b7af4000e79e82_9366/ultraboost-1.0.jpg",
-      title: "Adidas Ultraboost",
+      title: "Ultraboost shoes",
     },
     {
       image:
         "https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/42eb5b497c0545fda889af5e014faf9b_faec/adidas-basketball-hoodie.jpg",
       title: "Adidas Basketball Hoodie",
+    },
+    {
+      image:
+        "https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/13e456c9145d455e8d3daf4600e4e767_9366/puremotion-2.0-shoes.jpg",
+      title: "Adidas Puremotion 2.0 shoes",
     },
   ];
   return (
