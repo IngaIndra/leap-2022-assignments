@@ -4,18 +4,18 @@ export default function Home() {
   const articles = [
     {
       image:
-        "https://mgl.gogo.mn/newsn/story/06e0257950004107a2aaa7ec830365a8-63c939980075e396370671.jpg",
-      title: "Цагдаагийн 102 албан хаагч англи хэл сурахаар Филиппин явна",
+        "https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/544c5374609d46cc8d4baf33010cd714_9366/always-original-trench-coat.jpg",
+      title: "Adidas Trench Coat",
     },
     {
       image:
-        "https://mgl.gogo.mn/newsn/story/article-image-weddinggowns-kim-kardashian-174821-361256301-63c7593367c31750659072.jpeg",
-      title: "Цагдаагийн 102 албан хаагч англи хэл сурахаар Филиппин явна",
+        "https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/544c5374609d46cc8d4baf33010cd714_9366/always-original-trench-coat.jpg",
+      title: "Adidas Trench Coat",
     },
     {
       image:
-        "https://mgl.gogo.mn/newsn/story/article-image-weddinggowns-kim-kardashian-174821-361256301-63c7593367c31750659072.jpeg",
-      title: "Цагдаагийн 102 албан хаагч англи хэл сурахаар Филиппин явна",
+        "https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/544c5374609d46cc8d4baf33010cd714_9366/always-original-trench-coat.jpg",
+      title: "Adidas Trench Coat",
     },
   ];
   return (
