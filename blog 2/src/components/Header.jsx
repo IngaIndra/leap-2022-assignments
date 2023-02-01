@@ -21,7 +21,7 @@ export default function Header() {
           <div className="d-flex justify-content-between">
             <div>
               <a className="brand" href="/">
-                My Blog
+                Online Store
               </a>
             </div>
             <div>
