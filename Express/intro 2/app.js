@@ -19,6 +19,9 @@ const updateCategories = () => {
 app.get("/categories", (req, res) => {
   res.json(categories);
 });
+app.get("/", (req, res) => {
+  res.json("Hello");
+});
 
 app.get("/categories/:id", (req, res) => {
   const { id } = req.params;
@@ -73,7 +76,7 @@ let products = JSON.parse(fs.readFileSync("MOCK_DATA.json", "utf-8"));
 app.get("/products", (req, res) => {
   let { pageSize, page, priceTo, priceFrom, q } = req.query;
   pageSize = Number(pageSize) || 10;
-  page = Number(page) || 2;
+  page = Number(page) || 1;
   let start, end;
 
   start = (page - 1) * pageSize;
