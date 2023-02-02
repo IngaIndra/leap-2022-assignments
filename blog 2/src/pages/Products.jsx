@@ -4,38 +4,75 @@ import dayjs from "dayjs";
 import currencyFormatter from "../utils/currencyFormatter";
 
 import relateTime from "dayjs/plugin/relativeTime";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 dayjs.extend(relateTime);
 
 export default function Products() {
+  const [isReady, setIsReady] = useState(false);
+
   const [page, setPage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const [locationQuery, setLocationQuery] = useState("");
+
   const location = useLocation();
-  console.log(currentPage);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    axios
-      .get(
-        `http://localhost:8000/products?pageSize=${pageSize}&page=${currentPage}`
-      )
-      .then((res) => {
-        setPage(res.data);
-      });
-  }, [currentPage, pageSize]);
+    console.log("pageSize", pageSize);
+    const newQuery = new URLSearchParams();
+    newQuery.set("pageSize", pageSize);
+    newQuery.set("page", currentPage);
+    if (searchQuery !== "") {
+      newQuery.set("q", searchQuery);
+    }
+    setLocationQuery(newQuery.toString());
+  }, [pageSize, currentPage, searchQuery]);
+
+  useEffect(() => {
+    navigate(`/products?${locationQuery}`);
+  }, [locationQuery]);
+
+  useEffect(() => {
+    if (isReady) {
+      getResults();
+    }
+  }, [isReady]);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     if (searchParams.has("page")) {
       setCurrentPage(Number(searchParams.get("page")));
-      console.log("currentPage : ", searchParams.get("page"));
     }
     if (searchParams.has("pageSize")) {
       setPageSize(Number(searchParams.get("pageSize")));
-      console.log("pageSize : ", searchParams.get("pageSize"));
     }
-    console.log("changed");
+    if (searchParams.has("q")) {
+      setSearchQuery(searchParams.get("q"));
+    }
+    if (isReady) {
+      getResults();
+    } else {
+      setIsReady(true);
+    }
   }, [location]);
+
+  const getResults = () => {
+    const urlParams = new URLSearchParams();
+    urlParams.set("pageSize", pageSize);
+    urlParams.set("page", currentPage);
+    if (searchQuery !== "") {
+      urlParams.set("q", searchQuery);
+    }
+    axios
+      .get(`http://localhost:8000/products?${urlParams.toString()}`)
+      .then((res) => {
+        setPage(res.data);
+      });
+  };
 
   if (!page) {
     return (
@@ -45,86 +82,170 @@ export default function Products() {
     );
   }
 
+  // const GetPaginations = () => {
+  //   let result = [];
+  //   //adding first page
+  //   result.push(
+  //     <li className={`page-item ${1 === page.page && "active"}`}>
+  //       <a
+  //         className="page-link"
+  //         href="#"
+  //         onClick={(e) => {
+  //           e.preventDefault();
+  //           setCurrentPage(1);
+  //         }}
+  //       >
+  //         1
+  //       </a>
+  //     </li>
+  //   );
+  //   //front triple dots
+  //   if (page.page - 2 > 0) {
+  //     result.push(
+  //       <li className={`page-item`}>
+  //         <span className="page-link">...</span>
+  //       </li>
+  //     );
+  //   }
+  //   //adding current page
+  //   if (page.page !== 1 && page.page !== page.totalPages) {
+  //     result.push(
+  //       <>
+  //         {currentPage === 2 ? (
+  //           <></>
+  //         ) : (
+  //           <li className={`page-item `}>
+  //             <Link
+  //               to={`/products?pageSize=${pageSize}&page=${currentPage - 1}`}
+  //               className="page-link"
+  //             >
+  //               {page.page - 1}
+  //             </Link>
+  //           </li>
+  //         )}
+  //         <li className={`page-item active`}>
+  //           <a className="page-link" href="#">
+  //             {page.page}
+  //           </a>
+  //         </li>
+
+  //         {currentPage === page.totalPages - 1 ? (
+  //           <></>
+  //         ) : (
+  //           <li className={`page-item `}>
+  //             <Link
+  //               to={`/products?pageSize=${pageSize}&page=${currentPage + 1}`}
+  //               className="page-link"
+  //             >
+  //               {page.page + 1}
+  //             </Link>
+  //           </li>
+  //         )}
+  //       </>
+  //     );
+  //   }
+  //   //how many pages after current page
+  //   if (page.page === 1) {
+  //     result.push(
+  //       <li className={`page-item`}>
+  //         <Link to={`/products?pageSize=${pageSize}&page=${currentPage + 1}`}>
+  //           <span className="page-link">2</span>
+  //         </Link>
+  //       </li>
+  //     );
+  //   }
+  //   //how many pages before current page
+  //   if (page.page === pageSize) {
+  //     result.push(
+  //       <li className={`page-item`}>
+  //         <Link to={`/products?pageSize=${pageSize}&page=${currentPage - 1}`}>
+  //           <span className="page-link">{page.totalPages - 1}</span>
+  //         </Link>
+  //       </li>
+  //     );
+  //   }
+
+  //   //back triple dots
+  //   if (page.totalPages - 2 >= page.page) {
+  //     result.push(
+  //       <li className={`page-item`}>
+  //         <span className="page-link">...</span>
+  //       </li>
+  //     );
+  //   }
+
+  //   //adding last page
+  //   result.push(
+  //     <li className={`page-item ${page.totalPages === page.page && "active"}`}>
+  //       <a
+  //         className="page-link"
+  //         href="#"
+  //         onClick={(e) => {
+  //           e.preventDefault();
+  //           setCurrentPage(page.totalPages);
+  //         }}
+  //       >
+  //         {page.totalPages}
+  //       </a>
+  //     </li>
+  //   );
+  //   return result;
+  // };
   const GetPaginations = () => {
     let result = [];
-    //adding first page
+    // first page adding
     result.push(
       <li className={`page-item ${1 === page.page && "active"}`}>
-        <a className="page-link" href="#">
+        <Link
+          className="page-link"
+          to={`/products?pageSize=${pageSize}&page=${1}`}
+        >
           1
-        </a>
+        </Link>
       </li>
     );
-    //front triple dots
-    if (page.page - 2 > 0) {
+    // front triple dots
+    if (page.page - 3 > 0) {
       result.push(
         <li className={`page-item`}>
           <span className="page-link">...</span>
         </li>
       );
     }
-    //adding current page
+    if (page.page - 1 > 1) {
+      result.push(
+        <li className={`page-item `}>
+          <Link
+            className="page-link"
+            to={`/products?pageSize=${pageSize}&page=${page.page - 1}`}
+          >
+            {page.page - 1}
+          </Link>
+        </li>
+      );
+    }
+
     if (page.page !== 1 && page.page !== page.totalPages) {
       result.push(
-        <>
-          {currentPage === 2 ? (
-            <></>
-          ) : (
-            <li className={`page-item `}>
-              <Link
-                to={`/products?pageSize=${pageSize}&page=${currentPage - 1}`}
-                className="page-link"
-              >
-                {page.page - 1}
-              </Link>
-            </li>
-          )}
-          <li className={`page-item active`}>
-            <a className="page-link" href="#">
-              {page.page}
-            </a>
-          </li>
-
-          {currentPage === page.totalPages - 1 ? (
-            <></>
-          ) : (
-            <li className={`page-item `}>
-              <Link
-                to={`/products?pageSize=${pageSize}&page=${currentPage + 1}`}
-                className="page-link"
-              >
-                {page.page + 1}
-              </Link>
-            </li>
-          )}
-        </>
+        <li className={`page-item active`}>
+          <a className="page-link">{page.page}</a>
+        </li>
       );
     }
-    //how many pages after current page
-    if (page.page === 1) {
+    if (page.page + 1 < page.totalPages) {
       result.push(
-        <li className={`page-item`}>
-          <Link 
-                to={`/products?pageSize=${pageSize}&page=${currentPage + 1}`}>
-          <span className="page-link">2</span>
+        <li className={`page-item `}>
+          <Link
+            className="page-link"
+            to={`/products?pageSize=${pageSize}&page=${page.page + 1}`}
+          >
+            {page.page + 1}
           </Link>
         </li>
       );
     }
-    //how many pages before current page
-    if (page.page === pageSize) {
-      result.push(
-        <li className={`page-item`}>
-          <Link 
-                to={`/products?pageSize=${pageSize}&page=${currentPage - 1}`}>
-          <span className="page-link">{page.totalPages - 1}</span>
-          </Link>
-        </li>
-      );
-    }
-
-    //back triple dots
-    if (page.totalPages - 2 >= page.page) {
+    // back triple dots
+    if (page.totalPages - 3 >= page.page) {
       result.push(
         <li className={`page-item`}>
           <span className="page-link">...</span>
@@ -132,14 +253,22 @@ export default function Products() {
       );
     }
 
-    //adding last page
-    result.push(
-      <li className={`page-item ${page.totalPages === page.page && "active"}`}>
-        <a className="page-link" href="#">
-          {page.totalPages}
-        </a>
-      </li>
-    );
+    // last page adding
+    if (page.totalPages !== 1) {
+      result.push(
+        <li
+          className={`page-item ${page.totalPages === page.page && "active"}`}
+        >
+          <Link
+            className="page-link"
+            to={`/products?pageSize=${pageSize}&page=${page.totalPages}`}
+          >
+            {page.totalPages}
+          </Link>
+        </li>
+      );
+    }
+
     return result;
   };
 
@@ -147,19 +276,39 @@ export default function Products() {
     <main>
       <div className="container">
         <div className="d-flex justify-content-end mb-4">
+          <label className="me-4">
+            Нэрээр нь хайх
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Барааны нэр.."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setCurrentPage(1);
+              }}
+            />
+          </label>
           <label>
-            Хуудаслалт &nbsp;
-            <select>
+            Хуудаслалт
+            <select
+              className="form-control"
+              onChange={(e) => {
+                setPageSize(e.target.value);
+                setCurrentPage(1);
+              }}
+              value={pageSize}
+            >
               <option value={10}>10</option>
-              <option value={10}>20</option>
-              <option value={10}>30</option>
-              <option value={10}>50</option>
-              <option value={10}>100</option>
+              <option value={20}>20</option>
+              <option value={30}>30</option>
+              <option value={50}>50</option>
+              <option value={100}>100</option>
             </select>
           </label>
         </div>
         <div className="row gy-4">
-          {page.items.map((product) => {
+          {page?.items?.map((product) => {
             return (
               <div className="col-sm-3" key={product.id}>
                 <div className="product-card">

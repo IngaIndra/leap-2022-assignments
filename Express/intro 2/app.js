@@ -1,7 +1,6 @@
-const express = require("express"); //require=import 
-const cors = require("cors"); //error between 2 things when fetched
+const express = require("express"); //require=import
+const cors = require("cors"); //security
 const fs = require("fs");
-
 
 const app = express();
 
@@ -83,11 +82,19 @@ app.get("/products", (req, res) => {
   start = (page - 1) * pageSize;
   end = page * pageSize;
 
-  const items = products.slice(start, end);
+  const newProducts = products.filter((product) => {
+    let matching = true;
+    if (q) {
+      matching = product.name.toLowerCase().includes(q.toLowerCase());
+    }
+    return matching;
+  });
+
+  const items = newProducts.slice(start, end);
 
   res.json({
-    total: products.length,
-    totalPages: Math.ceil(products.length / pageSize),
+    total: newProducts.length,
+    totalPages: Math.ceil(newProducts.length / pageSize),
     page,
     pageSize,
     items,
