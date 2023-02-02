@@ -1,7 +1,7 @@
-const express = require("express");
-
-const cors = require("cors");
+const express = require("express"); //require=import 
+const cors = require("cors"); //error between 2 things when fetched
 const fs = require("fs");
+
 
 const app = express();
 
@@ -19,6 +19,7 @@ const updateCategories = () => {
 app.get("/categories", (req, res) => {
   res.json(categories);
 });
+
 app.get("/", (req, res) => {
   res.json("Hello");
 });

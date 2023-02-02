@@ -10,10 +10,10 @@ dayjs.extend(relateTime);
 export default function Products() {
   const [page, setPage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(12);
+  const [pageSize, setPageSize] = useState(10);
 
   const location = useLocation();
-
+  console.log(currentPage);
   useEffect(() => {
     axios
       .get(
@@ -28,10 +28,13 @@ export default function Products() {
     const searchParams = new URLSearchParams(location.search);
     if (searchParams.has("page")) {
       setCurrentPage(Number(searchParams.get("page")));
+      console.log("currentPage : ", searchParams.get("page"));
     }
     if (searchParams.has("pageSize")) {
       setPageSize(Number(searchParams.get("pageSize")));
+      console.log("pageSize : ", searchParams.get("pageSize"));
     }
+    console.log("changed");
   }, [location]);
 
   if (!page) {
@@ -42,7 +45,7 @@ export default function Products() {
     );
   }
 
-  const getPaginations = () => {
+  const GetPaginations = () => {
     let result = [];
     //adding first page
     result.push(
@@ -68,23 +71,30 @@ export default function Products() {
             <></>
           ) : (
             <li className={`page-item `}>
-              <a className="page-link" href="#">
+              <Link
+                to={`/products?pageSize=${pageSize}&page=${currentPage - 1}`}
+                className="page-link"
+              >
                 {page.page - 1}
-              </a>
+              </Link>
             </li>
           )}
           <li className={`page-item active`}>
             <a className="page-link" href="#">
               {page.page}
             </a>
-          </li>{" "}
+          </li>
+
           {currentPage === page.totalPages - 1 ? (
             <></>
           ) : (
             <li className={`page-item `}>
-              <a className="page-link" href="#">
+              <Link
+                to={`/products?pageSize=${pageSize}&page=${currentPage + 1}`}
+                className="page-link"
+              >
                 {page.page + 1}
-              </a>
+              </Link>
             </li>
           )}
         </>
@@ -94,7 +104,10 @@ export default function Products() {
     if (page.page === 1) {
       result.push(
         <li className={`page-item`}>
+          <Link 
+                to={`/products?pageSize=${pageSize}&page=${currentPage + 1}`}>
           <span className="page-link">2</span>
+          </Link>
         </li>
       );
     }
@@ -102,7 +115,10 @@ export default function Products() {
     if (page.page === pageSize) {
       result.push(
         <li className={`page-item`}>
+          <Link 
+                to={`/products?pageSize=${pageSize}&page=${currentPage - 1}`}>
           <span className="page-link">{page.totalPages - 1}</span>
+          </Link>
         </li>
       );
     }
@@ -175,7 +191,7 @@ export default function Products() {
                   Previous
                 </Link>
               </li>
-              {getPaginations()}
+              <GetPaginations />
               <li
                 className={`page-item ${
                   page.page === page.totalPages && "disabled"
