@@ -100,6 +100,41 @@ app.get("/products", (req, res) => {
     items,
   });
 });
+const menuPositions = [
+  {
+    id: 1,
+    name: "Үндсэн цэс",
+    alias: "main",
+  },
+];
+
+app.get("/menu-positions", (req, res) => {
+  res.json(menuPositions);
+});
+
+app.get("/menu-positions/:id", (req, res) => {
+  const { id } = req.params;
+  let position = null;
+  for (const row of categories) {
+    if (id == row.id) {
+      position = row;
+      break;
+    }
+  }
+  res.json(position);
+});
+
+let nextPosId = menuPositions.length;
+
+app.post("/menu-positions", jsonParser, (req, res) => {
+  const { name, alias } = req.body;
+  const newPosition = { id: nextPosId++, name, alias };
+  menuPositions.push(newPosition);
+  fs.writeFileSync("menuPositions.json", JSON.stringify(menuPositions));
+  res.json(newPosition);
+});
+
+const menus = [];
 
 app.listen(port, () => {
   console.log("http://localhost:" + port);
