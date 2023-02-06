@@ -12,9 +12,20 @@ import Articles from "./pages/Articles";
 // import Signout from "./pages/Signout";
 import Categories from "./pages/Categories";
 import MenuPositions from "./pages/MenuPositions";
+import Menus from "./pages/Menus";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function App() {
   const [menuShow, setMenuShow] = useState(false);
+
+  const [menus, setMenus] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/menu-positions").then((res) => {
+      setMenus(res.data);
+    });
+  }, []);
 
   // const [me, setMe] = useState(undefined);
 
@@ -40,11 +51,21 @@ export default function App() {
     <>
       <Navbar onToggle={() => setMenuShow(!menuShow)} />
       <div className="main-wrapper">
-        <div className={`off-menu bg-dark ${menuShow && "show"}`}>Test</div>
+        <div className={`off-menu bg-dark ${menuShow && "show"}`}>
+          <ul></ul>
+          {menus.map((menu) => {
+            return (
+              <li key={menu.id}>
+                <Link to={menu.link}>{menu.name}</Link>
+              </li>
+            );
+          })}
+        </div>
         <div className="off-menu-sibling">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="menu-positions" element={<MenuPositions />} />
+            <Route path="/menu-positions/:id" element={<Menus />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/articles" element={<Articles />} />
             {/* <Route path="/signout" element={<Signout setMe={setMe} />} /> */}
