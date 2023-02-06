@@ -100,13 +100,8 @@ app.get("/products", (req, res) => {
     items,
   });
 });
-const menuPositions = [
-  {
-    id: 1,
-    name: "Үндсэн цэс",
-    alias: "main",
-  },
-];
+
+let menuPositions = JSON.parse(fs.readFileSync("menuPositions.json", "utf-8"));
 
 app.get("/menu-positions", (req, res) => {
   res.json(menuPositions);
@@ -115,6 +110,7 @@ app.get("/menu-positions", (req, res) => {
 app.get("/menu-positions/:id", (req, res) => {
   const { id } = req.params;
   let position = null;
+
   for (const row of categories) {
     if (id == row.id) {
       position = row;
@@ -124,7 +120,7 @@ app.get("/menu-positions/:id", (req, res) => {
   res.json(position);
 });
 
-let nextPosId = menuPositions.length;
+let nextPosId = menuPositions.length + 1;
 
 app.post("/menu-positions", jsonParser, (req, res) => {
   const { name, alias } = req.body;
@@ -134,7 +130,24 @@ app.post("/menu-positions", jsonParser, (req, res) => {
   res.json(newPosition);
 });
 
-const menus = [];
+app.delete("/menu-positions/:id", (req, res) => {
+  const { id } = req.params;
+  menuPositions = menuPositions.filter((row) => row.id !== Number(id));
+  fs.writeFileSync("menuPositions.json", JSON.stringify(menuPositions));
+  res.json(id);
+});
+
+let menus = JSON.parse(fs.readFileSync("menus.json", "utf-8"));
+
+app.get("/menus", (req, res) => {
+  const { positionId } = req.query;
+  if (!positionId) return res.statusCode(400).json("PositionId required!");
+
+  const result = menus.filter((menu) => {
+    return menu.positionId === Number(positionId);
+  });
+  return res.json(result);
+});
 
 app.listen(port, () => {
   console.log("http://localhost:" + port);

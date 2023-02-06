@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Articles from "./pages/Articles";
-import Signin from "./pages/Signin";
-import SignInError from "./pages/SignInError";
-import Singup from "./pages/Singup";
-import SigninSuccess from "./pages/SinginSuccess";
+// import Signin from "./pages/Signin";
+// import SignInError from "./pages/SignInError";
+// import Signup from "./pages/Signup";
+// import SigninSuccess from "./pages/SigninSuccess";
+// import Signout from "./pages/Signout";
 import Categories from "./pages/Categories";
-import Signout from "./pages/Signout";
 import MenuPositions from "./pages/MenuPositions";
 
 export default function App() {
