@@ -20,7 +20,7 @@ function App() {
         <div className="toggler" onClick={toggleTheme}>
           <svg
             class={
-              theme == "dark"
+              theme === "dark"
                 ? "dark-mode-toggle__icon--moon"
                 : "dark-mode-toggle__icon"
             }
