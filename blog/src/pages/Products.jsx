@@ -6,6 +6,28 @@ import currencyFormatter from "../utils/currencyFormatter";
 import relateTime from "dayjs/plugin/relativeTime";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 dayjs.extend(relateTime);
+import dayjs from "dayjs";
+
+dayjs.extend(relateTime);
+dayjs.locale("mn");
+dayjs.extend(updateLocale);
+dayjs.updateLocale("mn", {
+  relativeTime: {
+    future: "%s дараа",
+    past: "%s өмнө",
+    s: "хэдхэн хоромын",
+    m: "1 минутын",
+    mm: "%d минутын",
+    h: "1 цагын",
+    hh: "%d цагын",
+    d: "1 өдрийн",
+    dd: "%d өдрийн",
+    M: "1 сарын",
+    MM: "%d сарын",
+    y: "1 жилийн",
+    yy: "%d жилийн",
+  },
+});
 
 export default function Products() {
   const [isReady, setIsReady] = useState(false);
@@ -82,115 +104,6 @@ export default function Products() {
     );
   }
 
-  // const GetPaginations = () => {
-  //   let result = [];
-  //   //adding first page
-  //   result.push(
-  //     <li className={`page-item ${1 === page.page && "active"}`}>
-  //       <a
-  //         className="page-link"
-  //         href="#"
-  //         onClick={(e) => {
-  //           e.preventDefault();
-  //           setCurrentPage(1);
-  //         }}
-  //       >
-  //         1
-  //       </a>
-  //     </li>
-  //   );
-  //   //front triple dots
-  //   if (page.page - 2 > 0) {
-  //     result.push(
-  //       <li className={`page-item`}>
-  //         <span className="page-link">...</span>
-  //       </li>
-  //     );
-  //   }
-  //   //adding current page
-  //   if (page.page !== 1 && page.page !== page.totalPages) {
-  //     result.push(
-  //       <>
-  //         {currentPage === 2 ? (
-  //           <></>
-  //         ) : (
-  //           <li className={`page-item `}>
-  //             <Link
-  //               to={`/products?pageSize=${pageSize}&page=${currentPage - 1}`}
-  //               className="page-link"
-  //             >
-  //               {page.page - 1}
-  //             </Link>
-  //           </li>
-  //         )}
-  //         <li className={`page-item active`}>
-  //           <a className="page-link" href="#">
-  //             {page.page}
-  //           </a>
-  //         </li>
-
-  //         {currentPage === page.totalPages - 1 ? (
-  //           <></>
-  //         ) : (
-  //           <li className={`page-item `}>
-  //             <Link
-  //               to={`/products?pageSize=${pageSize}&page=${currentPage + 1}`}
-  //               className="page-link"
-  //             >
-  //               {page.page + 1}
-  //             </Link>
-  //           </li>
-  //         )}
-  //       </>
-  //     );
-  //   }
-  //   //how many pages after current page
-  //   if (page.page === 1) {
-  //     result.push(
-  //       <li className={`page-item`}>
-  //         <Link to={`/products?pageSize=${pageSize}&page=${currentPage + 1}`}>
-  //           <span className="page-link">2</span>
-  //         </Link>
-  //       </li>
-  //     );
-  //   }
-  //   //how many pages before current page
-  //   if (page.page === pageSize) {
-  //     result.push(
-  //       <li className={`page-item`}>
-  //         <Link to={`/products?pageSize=${pageSize}&page=${currentPage - 1}`}>
-  //           <span className="page-link">{page.totalPages - 1}</span>
-  //         </Link>
-  //       </li>
-  //     );
-  //   }
-
-  //   //back triple dots
-  //   if (page.totalPages - 2 >= page.page) {
-  //     result.push(
-  //       <li className={`page-item`}>
-  //         <span className="page-link">...</span>
-  //       </li>
-  //     );
-  //   }
-
-  //   //adding last page
-  //   result.push(
-  //     <li className={`page-item ${page.totalPages === page.page && "active"}`}>
-  //       <a
-  //         className="page-link"
-  //         href="#"
-  //         onClick={(e) => {
-  //           e.preventDefault();
-  //           setCurrentPage(page.totalPages);
-  //         }}
-  //       >
-  //         {page.totalPages}
-  //       </a>
-  //     </li>
-  //   );
-  //   return result;
-  // };
   const GetPaginations = () => {
     let result = [];
     // first page adding

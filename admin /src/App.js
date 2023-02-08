@@ -48,7 +48,7 @@ export default function App() {
   // }
 
   return (
-    <>
+    <ModalProvider>
       <Navbar onToggle={() => setMenuShow(!menuShow)} />
       <div className="main-wrapper">
         <div className={`off-menu bg-dark ${menuShow && "show"}`}>
@@ -64,7 +64,7 @@ export default function App() {
         <div className="off-menu-sibling">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="menu-positions" element={<MenuPositions />} />
+            <Route path="/menu-positions" element={<MenuPositions />} />
             <Route path="/menu-positions/:id" element={<Menus />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/articles" element={<Articles />} />
@@ -72,6 +72,6 @@ export default function App() {
           </Routes>
         </div>
       </div>
-    </>
+    </ModalProvider>
   );
 }

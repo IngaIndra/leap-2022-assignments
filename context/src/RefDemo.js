@@ -15,9 +15,11 @@ export default function RefDemo() {
     value.current += e.target.value;
     if (value.current.length < 4) {
       inputParent.current.childNodes[value.current.length].focus();
+      console.log(value.current.length);
     } else {
       inputParent.current.childNodes[3].value =
         inputParent.current.childNodes[3].value[0] || "";
+      console.log("length", inputParent.current.childNodes[3].value);
     }
   };
 
