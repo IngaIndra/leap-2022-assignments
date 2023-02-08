@@ -3,7 +3,6 @@ const cors = require("cors"); //security
 const fs = require("fs");
 
 const app = express();
-
 app.use(cors());
 
 const port = 8000;
