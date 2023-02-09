@@ -20,7 +20,7 @@
   bottom: 0;
   width: 200px;
   color: #fff;
-  transition: 0.2s all;
+  transition: 0.4s all;
 }
 
 .off-menu-sibling {
@@ -39,4 +39,30 @@
 .navbar-toggler {
   display: block !important;
   margin-right: 20px !important;
+}
+
+.off-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.off-menu ul li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
+
+.off-menu ul li a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.off-menu ul li a :hover {
+  color: #f1f1f1;
 }

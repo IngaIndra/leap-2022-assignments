@@ -24,7 +24,7 @@ export default function App() {
   const [menus, setMenus] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/menu-positions").then((res) => {
+    axios.get("http://localhost:8000/menus/admin").then((res) => {
       setMenus(res.data);
     });
   }, []);
@@ -54,14 +54,17 @@ export default function App() {
       <Navbar onToggle={() => setMenuShow(!menuShow)} />
       <div className="main-wrapper">
         <div className={`off-menu bg-dark ${menuShow && "show"}`}>
-          <ul></ul>
-          {menus.map((menu) => {
-            return (
-              <li key={menu.id}>
-                <Link to={menu.link}>{menu.name}</Link>
-              </li>
-            );
-          })}
+          <ul>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/menu-positions"}>Menu Positions</Link>
+            </li>
+            <li>
+              <Link to={"/categories"}>Categories</Link>
+            </li>
+          </ul>
         </div>
         <div className="off-menu-sibling">
           <Routes>
